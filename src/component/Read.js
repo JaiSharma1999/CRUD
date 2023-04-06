@@ -37,7 +37,8 @@ const Read = () => {
     <div className="container  border border-warning p-5 border-2 mb-5">
       <div className="row">
         <div className="">
-          <div className="form-check form-switch">
+          <h5>Dark Mode</h5>
+          <div className="form-check form-switch mb-3">
             <input className="form-check-input" type="checkbox"
               onClick={() => {
                 if (tabledark === "table-dark") setTableDark("")
@@ -59,9 +60,9 @@ const Read = () => {
 
             </div>
             </div>
-            <div className="col-sm-2">
+            <div className="col-sm-2 ms-5">
             <Link to="/">
-              <button className='btn btn-primary'>Creat Data</button>
+              <button className='btn btn-primary ms-5'>Back</button>
             </Link>
             </div>
 
@@ -75,7 +76,7 @@ const Read = () => {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Email</th>
+                <th scope="col">Items</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
               </tr>

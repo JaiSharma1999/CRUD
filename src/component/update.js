@@ -29,7 +29,7 @@ const Update = () => {
       <div className='d-flex justify-content-between'> 
       <h2>Edit Data</h2>
       <Link to="/read"> 
-        <button className='btn btn-primary'>Go To Read Page</button>
+        <button className='btn btn-primary'>Back</button>
         </Link>
       
         </div>
@@ -41,7 +41,7 @@ const Update = () => {
     value={name}/>
   </div>
   <div className="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputEmail1">Add Items</label>
     <input type="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email" 
     onChange={(e)=> setEmail(e.target.value)}
     value={email}/>

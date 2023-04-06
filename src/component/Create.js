@@ -25,7 +25,7 @@ e.preventDefault();
   return (
     <div className='container border border-warning p-5 border-2'>
       <div className='d-flex justify-content-between'> 
-      <h2>Create</h2>
+      <h2>To Do List</h2>
       <Link to="/read"> 
         <button className='btn btn-primary'>Show Data</button>
         </Link>
@@ -37,7 +37,7 @@ e.preventDefault();
     <input type="text" className="form-control mb-4"  placeholder="Name" onChange={(e)=> setName(e.target.value)}/>
   </div>
   <div className="form-group">
-    <label for="exampleInputEmail1"  className='mb-3'>Email address</label>
+    <label for="exampleInputEmail1"  className='mb-3'>Add a Items</label>
     <input type="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email" onChange={(e)=> setEmail(e.target.value)}/>
     
   </div>
