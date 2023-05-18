@@ -53,7 +53,7 @@ e.preventDefault();
   <button type="submit" className="btn btn-primary mt-5" onClick={handleSubmit}>Submit</button>
 </form>
     </div>
-  )
+  )  
   } 
 
 export default Create

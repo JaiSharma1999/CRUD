@@ -11,7 +11,7 @@ const Read = () => {
       console.log(resp.data)
       setData(resp.data)
     }).catch(() => {
-      document.write("404")
+      document.write("404")  
     })
   }
   useEffect(() => {
@@ -29,7 +29,7 @@ const Read = () => {
     localStorage.setItem("published", published);
   }
   const inputHandler = (e) => {
-    const inputValue = e.target.value || ""; // Set a default value if e.target.value is undefined
+    const inputValue = e.target.value || ""; 
     setInput(inputValue.toLowerCase());
   };
   return (
