@@ -54,6 +54,6 @@ e.preventDefault();
 </form>
     </div>
   )
-}
+  } 
 
 export default Create
