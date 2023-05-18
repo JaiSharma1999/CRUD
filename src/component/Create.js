@@ -3,8 +3,9 @@ import Axios from "axios"
 import { Link, useNavigate } from 'react-router-dom'
 
 const Create = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
+  const [title, setTitle] = useState("")
+  const [author, setAuthor] = useState("")
+  const [published, setPublished] = useState("")
   
   const history = useNavigate();
 
@@ -13,8 +14,9 @@ e.preventDefault();
     Axios.post(
       "https://6420234282bea25f6dfac175.mockapi.io/cruid1",
       {
-        name: name,
-        email :email
+        title: title,
+        author :author,
+        published: published
       }
     ).then(()=>{
       history("/read")
@@ -33,12 +35,17 @@ e.preventDefault();
         </div>
       <form className=''>
       <div className="form-group mb-2">
-    <label for="exampleInputPassword1" className='mb-3'>Name</label>
-    <input type="text" className="form-control mb-4"  placeholder="Name" onChange={(e)=> setName(e.target.value)}/>
+    <label for="exampleInputPassword1" className='mb-3'>Book Title</label>
+    <input type="text" className="form-control mb-4"  placeholder="Name" onChange={(e)=> setTitle(e.target.value)}/>
   </div>
   <div className="form-group">
-    <label for="exampleInputEmail1"  className='mb-3'>Add a Items</label>
-    <input type="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email" onChange={(e)=> setEmail(e.target.value)}/>
+    <label for="exampleInputEmail1"  className='mb-3'>Book Author</label>
+    <input type="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email" onChange={(e)=> setAuthor(e.target.value)}/>
+    
+  </div>
+  <div className="form-group mt-5">
+    <label for="exampleInputEmail1"  className='mb-3'>Year published & ISBN</label>
+    <input type="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email" onChange={(e)=> setPublished(e.target.value)}/>
     
   </div>
   

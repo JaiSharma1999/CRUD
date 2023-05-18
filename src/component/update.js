@@ -4,21 +4,24 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const Update = () => {
   const [id,setId] =useState(0);
-  const [name,setName] =useState("");
-  const [email,setEmail]=useState(" ");
+  const [title, setTitle] = useState("")
+  const [author, setAuthor] = useState("")
+  const [published, setPublished] = useState("")
   const navigate = useNavigate();
   useEffect(()=>{
     setId(localStorage.getItem("id"));
-    setName(localStorage.getItem("name"));
-    setEmail(localStorage.getItem("email"));
+    setTitle(localStorage.getItem("title"));
+    setAuthor(localStorage.getItem("author"));
+    setPublished(localStorage.getItem("published"));
 
   },[])
   const handleUpdate=(e)=>{
     e.preventDefault();
   axios.put(`https://6420234282bea25f6dfac175.mockapi.io/cruid1/${id}`,
   {
-    name :name,
-    email : email
+    title: title,
+    author :author,
+    published: published
   }
   ).then(()=>{
      navigate("/read")
@@ -35,16 +38,23 @@ const Update = () => {
         </div>
        <form className=''>
       <div className="form-group mb-5">
-    <label for="exampleInputPassword1">Name</label>
+    <label for="exampleInputPassword1">Book Title</label>
     <input type="text" className="form-control"  placeholder="Name" 
-    onChange={(e)=> setName(e.target.value)}
-    value={name}/>
+    onChange={(e)=> setTitle(e.target.value)}
+    value={title}/>
   </div>
   <div className="form-group">
-    <label for="exampleInputEmail1">Add Items</label>
+    <label for="exampleInputEmail1">Book Author</label>
     <input type="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email" 
-    onChange={(e)=> setEmail(e.target.value)}
-    value={email}/>
+    onChange={(e)=> setAuthor(e.target.value)}
+    value={author}/>
+    
+  </div>
+   <div className="form-group mt-5">
+    <label for="exampleInputEmail1">Year Published & ISBN</label>
+    <input type="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email" 
+    onChange={(e)=> setPublished(e.target.value)}
+    value={published}/>
     
   </div>
   

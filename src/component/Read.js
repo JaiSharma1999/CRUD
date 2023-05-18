@@ -22,16 +22,16 @@ const Read = () => {
       getData()
     })
   }
-  const setToLocalStorage = (id, name, email) => {
+  const setToLocalStorage = (id, title, author,published) => {
     localStorage.setItem("id", id);
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
+    localStorage.setItem("title", title);
+    localStorage.setItem("author", author);
+    localStorage.setItem("published", published);
   }
   const inputHandler = (e) => {
-    setInput(e.target.value.toLowerCase())
-  }
-
-
+    const inputValue = e.target.value || ""; // Set a default value if e.target.value is undefined
+    setInput(inputValue.toLowerCase());
+  };
   return (
 
     <div className="container  border border-warning p-5 border-2 mb-5">
@@ -75,35 +75,36 @@ const Read = () => {
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Items</th>
-                <th scope="col"></th>
+                <th scope="col">Book Title</th>
+                <th scope="col">Book Author</th>
+                <th scope="col">Year Published & ISBN</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             {
               data.filter((el) => {
-                if (el === " ") {
-                  return el
-                }
-                else {
+                if (el && el.title && el.author) {
                   return (
-                    el.name.toLowerCase().includes(inputText) || el.email.toLowerCase().includes(inputText)
-                  )
+                    el.title.toLowerCase().includes(inputText) ||
+                    el.author.toLowerCase().includes(inputText)
+                  );
                 }
+                return false;
               }).map((eachData, id) => {
                 return (
                   <tbody key={id}>
                     <tr>
                       <th scope="row">{eachData.id}</th>
-                      <td>{eachData.name}</td>
-                      <td>{eachData.email}</td>
+                      <td>{eachData.title}</td>
+                      <td>{eachData.author}</td>
+                      <td>{eachData.published}</td>
 
                       <td>
                         <Link to="/update"> <button className='btn-success' onClick={() => setToLocalStorage(
                           eachData.id,
-                          eachData.name,
-                          eachData.email
+                          eachData.title,
+                          eachData.author,
+                          eachData.published
                         )}>Edit</button></Link>
                       </td>
 
